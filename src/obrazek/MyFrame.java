@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
 import javax.swing.JFrame;
-import javax.swing.Timer;
 
 public class MyFrame extends JFrame{
 
@@ -13,7 +12,8 @@ public class MyFrame extends JFrame{
     MyPanel panel;
     
     public MyFrame() throws HeadlessException, InterruptedException {
-        setSize( 700, 600);
+        super("Rain and hearth");
+        setSize( 640, 640);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground( Color.WHITE);
         setLayout( new FlowLayout());

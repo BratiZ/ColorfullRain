@@ -139,7 +139,7 @@ public class MyPanel extends JPanel implements MouseListener{
         }
         
         clock.scheduleAtFixedRate( task, 500, 50);
-        clockHearth.scheduleAtFixedRate( taskHearth, 500, 250);
+        clockHearth.scheduleAtFixedRate( taskHearth, 1000, 450);
         
         setVisible( true);
     }
@@ -150,10 +150,6 @@ public class MyPanel extends JPanel implements MouseListener{
         Graphics2D g2d = ( Graphics2D)g;
         this.inSide = RandColor();
         
-        for( int f = 0; f < this.snow.length; ++f){
-            this.snow[ f].draw( g2d);
-        }
-
         if( hearthDraw){
             switch( this.type){
                 case 0:
@@ -179,6 +175,10 @@ public class MyPanel extends JPanel implements MouseListener{
             for( HearthSquere f : this.squers){
                 f.draw(g);
             }
+        }
+        
+        for( int f = 0; f < this.snow.length; ++f){
+            this.snow[ f].draw( g2d);
         }
     }
     

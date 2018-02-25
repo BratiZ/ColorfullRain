@@ -32,36 +32,28 @@ public class MyPanel extends JPanel implements MouseListener{
     Color getColor( int ColorNumber){
         switch( ColorNumber){
             default:
-                return Color.WHITE;
-            case 0:
-                return Color.WHITE;
-            case 2:
                 return Color.BLUE;
-            case 3: 
+            case 0:
+                return Color.BLUE;
+            case 1: 
                 return Color.CYAN;
-            case 4:
-                return Color.DARK_GRAY;
-            case 5:
-                return Color.GRAY;
-            case 6:
-                return Color.LIGHT_GRAY;
-            case 7:
+            case 2:
                 return Color.MAGENTA;
-            case 8:
+            case 3:
                 return Color.ORANGE;
-            case 9:
+            case 4:
                 return Color.PINK;
-            case 10:
+            case 5:
                 return Color.RED;
-            case 11:
+            case 6:
                 return Color.YELLOW;
-            case 12:
+            case 7:
                 return Color.GREEN;
         }
     }
     
     Color RandColor(){
-        return this.getColor( new Random().nextInt(13));
+        return this.getColor( new Random().nextInt(8));
     }
     
     public MyPanel() {

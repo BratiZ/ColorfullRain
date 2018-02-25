@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 
 public class HearthSquere{
     Color color = Color.WHITE;
+
     int x = 0,
         y = 0,
         size = 40;
@@ -38,7 +39,7 @@ public class HearthSquere{
         if( this.inSide)
             this.color = color;
     }
-    
+  
     void draw( Graphics g){
         Graphics2D g2d = (Graphics2D)g;
         

@@ -25,8 +25,8 @@ public class MyPanel extends JPanel implements MouseListener{
           accent = Color.WHITE;
     
     int type,
-        size = 40;
-        
+        size = 40,
+        colorId = 0;
     boolean hearthDraw;
     
     Color getColor( int ColorNumber){
@@ -130,8 +130,8 @@ public class MyPanel extends JPanel implements MouseListener{
             this.snow[ f] = new MySnowBall();
         }
         
-        clock.scheduleAtFixedRate( task, 500, 50);
-        clockHearth.scheduleAtFixedRate( taskHearth, 1000, 450);
+        clock.scheduleAtFixedRate( task, 0, 50);
+        clockHearth.scheduleAtFixedRate( taskHearth, 0, 200);
         
         setVisible( true);
     }
@@ -160,6 +160,24 @@ public class MyPanel extends JPanel implements MouseListener{
                         f.draw(g);
                     }
                     break;
+                    
+                case 3:
+                    for( HearthSquere f : this.squers){
+                        f.setColorInside( getColor( ( colorId + ( f.x / 40)) % 8));
+                        
+                        f.draw(g);
+                    }
+                    colorId++;
+                    break;
+                    
+                case 4:
+                    for( HearthSquere f : this.squers){
+                        f.setColorInside( getColor( ( colorId + ( f.y / 40)) % 8));
+                        
+                        f.draw(g);
+                    }
+                    colorId++;
+                    break;
             }
             this.hearthDraw = false;
         }
@@ -176,7 +194,7 @@ public class MyPanel extends JPanel implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent me) {
-        if( me.getButton() == 1 && this.type < 2)
+        if( me.getButton() == 1 && this.type < 4)
             this.type++;
         
         else if( me.getButton() == 3 && this.type > 0)

@@ -26,7 +26,7 @@ public class MyPanel extends JPanel implements MouseListener{
     
     int type,
         size = 40,
-        colorId = 0;
+        colorId = 16;
     boolean hearthDraw;
     
     Color getColor( int ColorNumber){
@@ -61,7 +61,7 @@ public class MyPanel extends JPanel implements MouseListener{
         this.colorBackground = Color.BLACK;
         this.snow = new MySnowBall[ 300];
         this.squers = new ArrayList<>();
-        this.type = 0;
+        this.type = 5;
         this.hearthDraw = true;
         
         setPreferredSize( new Dimension( 640, 640));
@@ -107,7 +107,7 @@ public class MyPanel extends JPanel implements MouseListener{
             { 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
-                
+        
         for( int f = 0; f < hearthInSquere.length; ++f){
            for( int g = 0; g < hearthInSquere[f].length; ++g){
                switch (hearthInSquere[f][g]){
@@ -178,6 +178,24 @@ public class MyPanel extends JPanel implements MouseListener{
                     }
                     colorId++;
                     break;
+                    
+                case 5:
+                    for( HearthSquere f : this.squers){
+                        f.setColorInside( getColor( ( colorId - ( f.x / 40)) % 8));
+                        
+                        f.draw(g);
+                    }
+                    colorId++;
+                    break;
+                    
+                case 6:
+                    for( HearthSquere f : this.squers){
+                        f.setColorInside( getColor( ( colorId - ( f.y / 40)) % 8));
+                        
+                        f.draw(g);
+                    }
+                    colorId++;
+                    break;
             }
             this.hearthDraw = false;
         }
@@ -194,7 +212,7 @@ public class MyPanel extends JPanel implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent me) {
-        if( me.getButton() == 1 && this.type < 4)
+        if( me.getButton() == 1 && this.type < 6)
             this.type++;
         
         else if( me.getButton() == 3 && this.type > 0)

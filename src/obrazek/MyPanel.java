@@ -61,7 +61,7 @@ public class MyPanel extends JPanel implements MouseListener{
         this.colorBackground = Color.BLACK;
         this.snow = new MySnowBall[ 300];
         this.squers = new ArrayList<>();
-        this.type = 5;
+        this.type = 0;
         this.hearthDraw = true;
         
         setPreferredSize( new Dimension( 640, 640));
